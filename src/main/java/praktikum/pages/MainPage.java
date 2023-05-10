@@ -23,8 +23,11 @@ public class MainPage {
     private final SelenideElement profileLink = $(By.xpath("//p[text()='Личный Кабинет']"));
     private final SelenideElement createBurgerText = $(By.xpath("//h1[text()='Соберите бургер']"));
     private final SelenideElement bunsTab = $(By.xpath("//span[text()='Булки']//parent::div"));
+    private final SelenideElement bunsTabChapter = $(By.xpath("//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']//span[text()='Булки']"));
     private final SelenideElement saucesTab = $(By.xpath("//span[text()='Соусы']//parent::div"));
+    private final SelenideElement saucesTabChapter = $(By.xpath("//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']//span[text()='Соусы']"));
     private final SelenideElement fillingsTab = $(By.xpath("//span[text()='Начинки']//parent::div"));
+    private final SelenideElement fillingsTabChapter = $(By.xpath("//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']//span[text()='Начинки']"));
 
 
     @Step("Нажать кнопку Войти")
@@ -75,14 +78,14 @@ public class MainPage {
 
 
     public String getFillingsTabClassValue() {
-        return fillingsTab.getText();
+        return fillingsTabChapter.getText();
     }
 
     public String getBunsTabClassValue() {
-        return bunsTab.getText();
+        return bunsTabChapter.getText();
     }
 
     public String getSaucesTabClassValue() {
-        return saucesTab.getText();
+        return saucesTabChapter.getText();
     }
 }

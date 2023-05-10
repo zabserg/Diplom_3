@@ -32,14 +32,13 @@ public class RegisterNewUserTest {
     @After
     public void teardown() {
         WebDriverRunner.closeWebDriver();
-        if (!afterToBeLaunched) {
-            return;
+        if (afterToBeLaunched) {
+            String bearerToken = userClient.login(creds)
+                    .then().log().all()
+                    .extract()
+                    .path("accessToken");
+            userClient.delete(userModel.getEmail(), bearerToken);
         }
-        String bearerToken = userClient.login(creds)
-                .then().log().all()
-                .extract()
-                .path("accessToken");
-        userClient.delete(userModel.getEmail(), bearerToken);
     }
 
 
